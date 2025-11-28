@@ -20,6 +20,18 @@ public class BookList {
         return book_list;
     }
 
+    @GetMapping("/getBook/{id}")
+    public ResponseEntity<Book> getBookById(@PathVariable int id){
+        for(int i=0;i<book_list.size();i++){
+            Book m = book_list.get(i);
+            if(m.bookId == id){
+                return ResponseEntity.ok(m);
+            }
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
+
     @PostMapping("/setBooks")
     public Book createNewBook(@RequestBody Book newBook){
         book_list.add(newBook);
