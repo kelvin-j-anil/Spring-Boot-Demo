@@ -2,7 +2,7 @@ name: Backend CI
 
 on:
   push:
-    branches: [ main ]   # Change if Render watches another branch
+    branches: [ main ]
 
 jobs:
   build:
