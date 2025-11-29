@@ -2,7 +2,9 @@ name: Backend CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]   # <- changed to master
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -15,7 +17,7 @@ jobs:
       - name: Setup Java 21 (Zulu)
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'      # MATCHES your local Zulu JDK
+          distribution: 'zulu'
           java-version: '21'
 
       - name: Build with Gradle Wrapper
