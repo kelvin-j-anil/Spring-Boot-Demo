@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class BookList {
     List<Book> book_list = new ArrayList<>();
     public BookList() {
