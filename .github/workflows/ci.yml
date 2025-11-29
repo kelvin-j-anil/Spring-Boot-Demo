@@ -2,7 +2,7 @@ name: Backend CI
 
 on:
   push:
-    branches: [ master ]   # <- changed to master
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
