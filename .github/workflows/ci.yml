@@ -1,0 +1,23 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [ main ]   # Change if Render watches another branch
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java 21 (Zulu)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'      # MATCHES your local Zulu JDK
+          java-version: '21'
+
+      - name: Build with Gradle Wrapper
+        run: .\gradlew.bat build -x test
+        shell: pwsh
